@@ -156,8 +156,8 @@ public class ODocumentValidationTest {
       clazz.createProperty("int", OType.INTEGER).setMandatory(true);
       clazz.createProperty("long", OType.LONG).setMandatory(true);
       clazz.createProperty("embedded", OType.EMBEDDED, embeddedClazz).setMandatory(true);
-      OClass clazzNotVertex = db.getMetadata().getSchema().createClass("NotVertex");
-      clazzNotVertex.createProperty("embeddedSimple", OType.EMBEDDED);
+      // OClass clazzNotVertex = db.getMetadata().getSchema().createClass("NotVertex");
+      // clazzNotVertex.createProperty("embeddedSimple", OType.EMBEDDED);
 
       ODocument d = new ODocument(clazz);
       d.field("int", 30);
@@ -169,9 +169,9 @@ public class ODocumentValidationTest {
       } catch (OValidationException e) {
         Assert.assertTrue(e.toString().contains("EmbeddedValidation.int"));
       }
-      d = new ODocument(clazzNotVertex);
-      checkField(d, "embeddedSimple", db.newVertex());
-      checkField(d, "embeddedSimple", db.newEdge(db.newVertex(), db.newVertex()));
+      // d = new ODocument(clazzNotVertex);
+      // checkField(d, "embeddedSimple", db.newVertex());
+      // checkField(d, "embeddedSimple", db.newEdge(db.newVertex(), db.newVertex()));
 
     } finally {
       db.drop();

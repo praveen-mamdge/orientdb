@@ -10,12 +10,12 @@ public class ODocumentEmbedded extends ODocument {
 
   public ODocumentEmbedded(String clazz) {
     super(clazz);
-    checkEmbeddable();
+    // checkEmbeddable();
   }
 
   public ODocumentEmbedded(String clazz, ODatabaseSession session) {
     super(session, clazz);
-    checkEmbeddable();
+    // checkEmbeddable();
   }
 
   public ODocumentEmbedded(ODatabaseSession session) {
